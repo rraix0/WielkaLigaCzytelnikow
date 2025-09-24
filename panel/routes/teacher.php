@@ -58,6 +58,9 @@ session_start();
         if (isset($_GET["quiz_id"])) {
             include __DIR__ . "/teacher/questions.php";
         }
+        else if(isset($_GET["question_id"])){
+            include __DIR__ . "/teacher/question.php";
+        }
         else {
             include __DIR__ . "/teacher/quizes.php";
         }
