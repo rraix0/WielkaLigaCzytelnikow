@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <style>
@@ -43,9 +43,9 @@
 </style>
 
 <nav>
-    <?php 
+    <?php
         echo  "Witaj ". $_SESSION["LOGGED"]["username"] ."!";
-    ?>
+?>
     <br>
     <div class="nav_buttons">
         <button class="nav_item">Urzytkownicy</button>
