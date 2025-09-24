@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <style>
     * {
         margin: 0;
@@ -45,26 +44,22 @@ session_start();
 <nav>
     <?php
         echo  "Witaj ". $_SESSION["LOGGED"]["username"] ."!";
-?>
-    <br>
+    ?>
     <div class="nav_buttons">
-        <button class="nav_item">Urzytkownicy</button>
+        <button class="nav_item">Quizy</button>
     </div>
     <form action="../logout.php" method="post">
         <button type="submit">Wyloguj</button>
     </form>
 </nav>
 <main>
-    <ul>
-        <li>
-            <form>
-                <input type="text" value="Username">
-                <span>Email</span>
-                <span>Type</span>
-                <button type="submit">Zapisz</button>
-            </form>
-            
+    <?php
 
-        </li>
-    </ul>
+        if (isset($_GET["quiz_id"])) {
+            include __DIR__ . "/teacher/questions.php";
+        }
+        else {
+            include __DIR__ . "/teacher/quizes.php";
+        }
+    ?>
 </main>
