@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "./../conn.php";
 ?>
 
 <style>
@@ -56,15 +57,35 @@ session_start();
 </nav>
 <main>
     <ul>
+        <?php
+            $conn = conn();
+            if ($result = $conn->query("SELECT * FROM users WHERE type = 'participant'")) {
+                echo "Participants: " . $result->num_rows . "<br>";
+                while ($row = $result->fetch_assoc()) {
+        ?>
+    
         <li>
             <form>
-                <input type="text" value="Username">
-                <span>Email</span>
-                <span>Type</span>
+                <input type="text" value='
+                <?php echo "". $row['username'] . ""; ?>
+                '>
+                <span>
+                    <?php echo "". $row['email'] . ""; ?>
+                </span>
+                <select>
+                    <option>Participant</option>
+                    <option>Teacher</option>
+                </select>
+                <button>
+                <?php echo "Change ". $row['username'] . "'s password"; ?>    
+                </button>
                 <button type="submit">Zapisz</button>
             </form>
-            
-
         </li>
+        <?php
+            }
+                $result->free();
+            }
+        ?>
     </ul>
 </main>
