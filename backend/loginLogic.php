@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $_SESSION['INFO'] = $row['id'] . " - " . $row['username'] . " - " . password_verify($password, $row['pass']);
+//    $_SESSION['INFO'] = $row['id'] . " - " . $row['username'] . " - " . password_verify($password, $row['pass']);
 
     if ( !empty($row )) {
         if (password_verify($password, $row['pass'])) {
