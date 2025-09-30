@@ -82,7 +82,6 @@ include "./../conn.php";
         }
     ?>
 </span>
-
     <ul>
         <?php
             $conn = conn();

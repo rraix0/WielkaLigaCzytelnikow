@@ -42,7 +42,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
             $_SESSION['LOGGED'] = $user_object;
             header("Location: panel/panel.php");
             exit;
+        } else {
+            $_SESSION["error"] = "Złe hasło.";
         }
+    } else {
+        $_SESSION["error"] = "Nie znaleziono użytkownika.";
     }
 
     
