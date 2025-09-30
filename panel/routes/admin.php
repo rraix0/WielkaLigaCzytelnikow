@@ -86,7 +86,7 @@ include "./../conn.php";
     <ul>
         <?php
             $conn = conn();
-            if ($result = $conn->query("SELECT * FROM users WHERE type = 'participant' OR type = 'teacher'")) {
+            if ($result = $conn->query("SELECT * FROM users WHERE type = 'participant' OR type = 'teacher' OR type = 'creator'")) {
                 echo "Participants: " . $result->num_rows . "<br>";
                 while ($row = $result->fetch_assoc()) {
         ?>
@@ -100,6 +100,7 @@ include "./../conn.php";
                 <select name="acc_type">
                     <option value="participant">Participant</option>
                     <option value="teacher" <?php if ($row['type'] == "teacher") echo "selected"; ?> >Teacher</option>
+                    <option value="creator" <?php if ($row['type'] == "creator") echo "selected"; ?> >Creator</option>
                 </select>
                 <button type="submit" name="user_id" value='<?php echo "".$row['id'].""; ?>'>Zapisz</button>
             </form>

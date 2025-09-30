@@ -148,8 +148,8 @@ include "./backend/loginLogic.php";
             $_SESSION["INFO"] = "";
         }?>
         <div class="form-group">
-            <label for="username">Nazwa użytkownika</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Email</label>
+            <input type="email" id="username" name="username" required>
         </div>
         <div class="form-group">
             <label for="password">Hasło</label>

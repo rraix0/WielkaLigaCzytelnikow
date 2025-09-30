@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
 
     $conn = conn();
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?;");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?;");
     $stmt->bind_param("s", $login);
     $stmt->execute();
     $result = $stmt->get_result();
