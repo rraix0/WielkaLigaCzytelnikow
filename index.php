@@ -1,3 +1,6 @@
+<?php
+define("BASE_PATH", __DIR__);
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>

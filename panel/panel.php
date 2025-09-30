@@ -24,6 +24,7 @@
             include "./routes/admin.php";
             break;
         case "teacher":
+            echo "teacher";
             break;
         case "participant":
             break;
