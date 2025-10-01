@@ -1,7 +1,7 @@
 <?php
- session_start();
-
- if (isset($_SESSION["LOGGED"]) && !empty($_SESSION["LOGGED"]["username"])) {
+    session_start();
+    define("BASE_PATH", __DIR__);
+    if (isset($_SESSION["LOGGED"]) && !empty($_SESSION["LOGGED"]["username"])) {
 ?>
 
 <!doctype html>
@@ -24,7 +24,7 @@
             include "./routes/admin.php";
             break;
         case "teacher":
-            echo "teacher";
+            include "./routes/teacher.php";
             break;
         case "participant":
             break;
