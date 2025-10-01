@@ -1,7 +1,9 @@
 <?php
     session_start();
     define("BASE_PATH", __DIR__);
-    if (isset($_SESSION["LOGGED"]) && !empty($_SESSION["LOGGED"]["username"])) {
+    if (!isset($_SESSION["LOGGED"]) && empty($_SESSION["LOGGED"]["username"])) {
+        header("Location: ../login.php");
+    }
 ?>
 
 <!doctype html>
@@ -41,12 +43,3 @@
 
 </body>
 </html>
-
-
-<?php
-
- } else {
-    header("Location: ../login.php");
- }
-
- ?>
