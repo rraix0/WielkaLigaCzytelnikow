@@ -55,13 +55,13 @@ session_start();
 <main>
     <?php
         if (isset($_GET["quiz_id"])) {
-            include __DIR__ . "/teacher/questions.php";
+            include __DIR__ . "/creator/questions.php";
         }
         else if(isset($_GET["question_id"])){
-            include __DIR__ . "/teacher/question.php";
+            include __DIR__ . "/creator/question.php";
         }
         else {
-            include __DIR__ . "/teacher/quizes.php";
+            include __DIR__ . "/creator/quizes.php";
         }
     ?>
 </main>
