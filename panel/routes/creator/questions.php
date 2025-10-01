@@ -43,9 +43,18 @@ $questions = queryQuestions();
         echo '<li>';
         echo '<div class="question">';
         echo '<div class="name">'.$question['id']." - ".$question['title'].'</div>';
-        echo '<div class="desc">'.$question['content'].'</div> <div class="buttons">';
-        echo '<form method="post"><button type="submit" name="delete_question" value="'.$question['id'].'">Delete</button></form>';
-        echo '<form method="get"><button type="submit" name="question_id" value="'.$question['id'].'">Edit</button></form></div>';
+        echo '<div class="desc">'.$question['content'].'</div>';
+        echo <<<HTML
+            <div class="buttons">
+                <form method="post">
+                    <button type="submit" name="delete_question" value="{$question['id']}">Delete</button>
+                </form>
+                <form method="get">
+                    <input type="hidden" name="quiz_id" value="{$_GET['quiz_id']}">
+                    <button type="submit" name="question_id" value="{$question['id']}">Edit</button>
+                </form>
+            </div>
+        HTML;
         echo '</div>';
         echo '</li>';
     }
