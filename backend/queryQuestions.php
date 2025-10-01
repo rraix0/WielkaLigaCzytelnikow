@@ -2,7 +2,7 @@
 include '../conn.php';
 function queryQuestions() {
     $res = [];
-    if($_SESSION['LOGGED']['type'] == 'teacher' && isset($_GET['quiz_id'])){
+    if($_SESSION['LOGGED']['type'] == 'creator' && isset($_GET['quiz_id'])){
         $conn = conn();
         $stmt = $conn->prepare("SELECT * FROM questions WHERE pool_id = ?;");
         $stmt->bind_param("s", $_GET['quiz_id']);

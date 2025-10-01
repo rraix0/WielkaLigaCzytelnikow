@@ -2,7 +2,7 @@
 include '../conn.php';
 function queryQuizes() {
     $quizes = [];
-    if($_SESSION['LOGGED']['type'] == 'teacher'){
+    if($_SESSION['LOGGED']['type'] == 'creator'){
         $conn = conn();
         $stmt = $conn->prepare("SELECT * FROM pools;");
         $stmt->execute();

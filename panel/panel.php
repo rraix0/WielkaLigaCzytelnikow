@@ -23,8 +23,8 @@
         case "admin":
             include "./routes/admin.php";
             break;
-        case "teacher":
-            include "./routes/teacher.php";
+        case "creator":
+            include "./routes/creator.php";
             break;
         case "participant":
             break;
