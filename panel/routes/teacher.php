@@ -54,7 +54,6 @@ session_start();
 </nav>
 <main>
     <?php
-
         if (isset($_GET["quiz_id"])) {
             include __DIR__ . "/teacher/questions.php";
         }
