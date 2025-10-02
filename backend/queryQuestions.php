@@ -15,13 +15,13 @@ function queryQuestions() {
                 'title' => $question[1],
                 'content' => $question[2],
             ];
-            $stmt = $conn->prepare("SELECT * FROM answers WHERE question_id = ?;");
+            $stmt = $conn->prepare("SELECT id, content, is_correct FROM answers WHERE question_id = ?;");
             $stmt->bind_param("s", $question_obj["id"]);
             $stmt->execute();
             $result = $stmt->get_result();
-            $answers = $result->fetch_all();
+            $answers = $result->fetch_all(MYSQLI_ASSOC);
             $question_obj['answers'] = $answers;
-            array_push($res, $question_obj);
+            $res[$question[0]] = $question_obj;
         }
     }
     return $res;

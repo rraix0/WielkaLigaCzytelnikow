@@ -54,10 +54,10 @@ session_start();
 </nav>
 <main>
     <?php
-        if (isset($_GET["quiz_id"])) {
+        if (isset($_GET["quiz_id"]) && !isset($_GET['question_id'])) {
             include __DIR__ . "/creator/questions.php";
         }
-        else if(isset($_GET["question_id"])){
+        else if(isset($_GET["quiz_id"]) && isset($_GET["question_id"])){
             include __DIR__ . "/creator/question.php";
         }
         else {
